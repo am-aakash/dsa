@@ -1,0 +1,15 @@
+-- Solution 1 ->
+select Title, rating
+from earning
+left join
+IMDB on earning.movie_id = IMDB.movie_id
+where domestic > 100000000 and metacritic > 60 and IMDB.title like '%2012%'
+
+
+-- Solution 2 ->
+SELECT i.Title, i.Rating FROM IMDB i, earning e
+WHERE i.MetaCritic>60 AND e.Domestic>100000000 AND i.Movie_id=e.Movie_id 
+	AND i.Title LIKE '%12)'
+
+
+-- https://www.codingninjas.com/codestudio/problems/imdb_1755910?topList=top-100-sql-problems&leftPanelTab=0
