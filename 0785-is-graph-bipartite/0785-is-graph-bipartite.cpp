@@ -4,11 +4,8 @@ public:
         int next = (curr==1)? 2: 1;
         col[i]=curr;
         for(int el : adj[i]){
-            if(col[el]==0){
-                if(!dfs(adj, el, next, col)) return false;
-            }
-            else{
-                if(col[i]==col[el]) return false;
+            if((col[el]==0 && !dfs(adj, el, next, col)) || (col[i]==col[el])){
+                return false;
             }
         }
         return true;
